@@ -1,0 +1,7 @@
+name: trip-service-kata
+
+services:
+  app:
+    build: .
+    volumes:
+      - "./:/app"
