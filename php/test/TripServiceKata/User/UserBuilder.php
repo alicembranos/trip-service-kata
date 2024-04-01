@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\TripServiceKata;
+namespace Test\TripServiceKata\User;
 
 use TripServiceKata\TripServiceKata\Trip\Trip;
 use TripServiceKata\TripServiceKata\User\User;
