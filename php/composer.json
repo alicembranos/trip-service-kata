@@ -20,8 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "TripServiceKata\\": "src/",
-            "Test\\": "test/"
+            "TripServiceKata\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\" : "test/"
         }
     }
 }
