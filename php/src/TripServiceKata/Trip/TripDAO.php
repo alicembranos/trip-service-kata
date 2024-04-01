@@ -1,9 +1,9 @@
 <?php
 
-namespace TripServiceKata\Trip;
+namespace TripServiceKata\TripServiceKata\Trip;
 
-use TripServiceKata\User\User;
-use TripServiceKata\Exception\DependentClassCalledDuringUnitTestException;
+use TripServiceKata\TripServiceKata\User\User;
+use TripServiceKata\TripServiceKata\Exception\DependentClassCalledDuringUnitTestException;
 
 class TripDAO
 {

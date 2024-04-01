@@ -1,8 +1,8 @@
 <?php
 
-namespace TripServiceKata\Trip;
+namespace TripServiceKata\TripServiceKata\Trip;
 
-use TripServiceKata\User\User;
+use TripServiceKata\TripServiceKata\User\User;
 
 class TestableTripService extends TripService
 {

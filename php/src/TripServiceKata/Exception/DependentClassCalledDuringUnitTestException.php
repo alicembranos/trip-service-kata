@@ -1,6 +1,6 @@
 <?php
 
-namespace TripServiceKata\Exception;
+namespace TripServiceKata\TripServiceKata\Exception;
 
 use RuntimeException;
 

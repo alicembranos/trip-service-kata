@@ -3,11 +3,11 @@
 namespace Test\TripServiceKata\Trip;
 
 use PHPUnit\Framework\TestCase;
-use TripServiceKata\Exception\UserNotLoggedInException;
-use TripServiceKata\Trip\TestableTripService;
-use TripServiceKata\Trip\Trip;
-use TripServiceKata\User\User;
-use TripServiceKata\User\UserSession;
+use Test\TripServiceKata\UserBuilder;
+use TripServiceKata\TripServiceKata\Exception\UserNotLoggedInException;
+use TripServiceKata\TripServiceKata\Trip\TestableTripService;
+use TripServiceKata\TripServiceKata\Trip\Trip;
+use TripServiceKata\TripServiceKata\User\User;
 
 class TripServiceTest extends TestCase
 {

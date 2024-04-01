@@ -1,8 +1,8 @@
 <?php
 
-namespace TripServiceKata\User;
+namespace TripServiceKata\TripServiceKata\User;
 
-use TripServiceKata\Exception\DependentClassCalledDuringUnitTestException;
+use TripServiceKata\TripServiceKata\Exception\DependentClassCalledDuringUnitTestException;
 
 class UserSession
 {

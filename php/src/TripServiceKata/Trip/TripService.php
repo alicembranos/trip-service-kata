@@ -1,10 +1,10 @@
 <?php
 
-namespace TripServiceKata\Trip;
+namespace TripServiceKata\TripServiceKata\Trip;
 
-use TripServiceKata\User\User;
-use TripServiceKata\User\UserSession;
-use TripServiceKata\Exception\UserNotLoggedInException;
+use TripServiceKata\TripServiceKata\User\User;
+use TripServiceKata\TripServiceKata\User\UserSession;
+use TripServiceKata\TripServiceKata\Exception\UserNotLoggedInException;
 
 class TripService
 {
