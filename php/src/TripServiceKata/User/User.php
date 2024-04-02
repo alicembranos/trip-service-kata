@@ -17,23 +17,33 @@ class User
         $this->friends = array();
     }
 
+    /** @return array<Trip> */
     public function getTrips()
     {
         return $this->trips;
     }
 
+    /** @return array<User> */
     public function getFriends()
     {
         return $this->friends;
     }
 
+    /** @return void */
     public function addFriend(User $user)
     {
         $this->friends[] = $user;
     }
 
+    /** @return void */
     public function addTrip(Trip $trip)
     {
         $this->trips[] = $trip;
+    }
+
+    /** @return bool */
+    public function isFriendWith(User $friend)
+    {
+        return in_array($friend, $this->friends);
     }
 }
