@@ -11,7 +11,7 @@ class TripService
      * @return array<Trip>
      * @throws UserNotLoggedInException
      */
-    public function getTripsByUser(User $user, ?User $loggedInUser)
+    public function getTripsByUser(User $user, ?User $loggedInUser) : array
     {
         if ($loggedInUser == null) {
             throw new UserNotLoggedInException();
@@ -19,17 +19,13 @@ class TripService
         return $user->isFriendWith($loggedInUser) ? $this->findTripsByUser($user) : $this->noTrips();
     }
 
-    /**
-     * @param User $user
-     * @return Array<Trip>
-     */
-    protected function findTripsByUser(User $user)
+    /** @return Array<Trip> */
+    protected function findTripsByUser(User $user) : array
     {
         return TripDAO::findTripsByUser($user);
     }
 
-    /** @return array */
-    private function noTrips()
+    private function noTrips() : array
     {
         return array();
     }

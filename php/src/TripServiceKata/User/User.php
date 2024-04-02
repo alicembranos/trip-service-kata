@@ -10,7 +10,7 @@ class User
     private $friends;
     private $name;
 
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
         $this->trips = array();
@@ -18,31 +18,28 @@ class User
     }
 
     /** @return array<Trip> */
-    public function getTrips()
+    public function getTrips() : array
     {
         return $this->trips;
     }
 
     /** @return array<User> */
-    public function getFriends()
+    public function getFriends() : array
     {
         return $this->friends;
     }
 
-    /** @return void */
-    public function addFriend(User $user)
+    public function addFriend(User $user) : void
     {
         $this->friends[] = $user;
     }
 
-    /** @return void */
-    public function addTrip(Trip $trip)
+    public function addTrip(Trip $trip) : void
     {
         $this->trips[] = $trip;
     }
 
-    /** @return bool */
-    public function isFriendWith(User $friend)
+    public function isFriendWith(User $friend) : bool
     {
         return in_array($friend, $this->friends);
     }
