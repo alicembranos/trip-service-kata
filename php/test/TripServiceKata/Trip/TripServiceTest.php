@@ -34,7 +34,7 @@ class TripServiceTest extends TestCase
         $unusedUser = new User("unusedUser");
 
         // WHEN
-        $this->tripService->getTripsByUser($unusedUser);
+        $this->tripService->getTripsByUser($unusedUser, $guest);
     }
 
 
@@ -49,7 +49,7 @@ class TripServiceTest extends TestCase
             ->build();
 
         // WHEN
-        $tripList = $this->tripService->getTripsByUser($friend);
+        $tripList = $this->tripService->getTripsByUser($friend, $this->loggedInUser);
 
         // THEN
         $this->assertCount(0, $tripList);
@@ -68,7 +68,7 @@ class TripServiceTest extends TestCase
             ->build();
 
         // WHEN
-        $tripList = $this->tripService->getTripsByUser($friend);
+        $tripList = $this->tripService->getTripsByUser($friend, $this->loggedInUser);
 
         // THEN
         $this->assertCount(1, $tripList);
