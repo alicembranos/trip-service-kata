@@ -19,7 +19,7 @@ class TripServiceTest extends TestCase
     protected function setUp()
     {
         $this->loggedInUser = new User('John');
-        $this->tripService = new TestableTripService($this->loggedInUser);
+        $this->tripService = new TestableTripService();
     }
 
     /** @test */
@@ -30,7 +30,6 @@ class TripServiceTest extends TestCase
 
         // GIVEN
         $guest = null;
-        $this->tripService = new TestableTripService($guest);
         $unusedUser = new User("unusedUser");
 
         // WHEN
