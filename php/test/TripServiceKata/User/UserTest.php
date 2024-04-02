@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class UserTest extends TestCase
 {
     /** @test */
-    public function it_should_inform_when_users_are_not_friends()
+    public function it_should_inform_when_users_are_not_friends() : void
     {
         // GIVEN
         $user = UserBuilder::init()
@@ -24,7 +24,7 @@ class UserTest extends TestCase
     }
 
     /** @test */
-    public function it_should_inform_when_users_are_friends()
+    public function it_should_inform_when_users_are_friends() : void
     {
         // GIVEN
         $user = UserBuilder::init()

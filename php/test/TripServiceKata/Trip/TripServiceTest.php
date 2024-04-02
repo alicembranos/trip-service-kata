@@ -23,7 +23,7 @@ class TripServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_throw_an_exception_when_user_is_not_logged_and_tries_to_see_the_trip_list()
+    public function it_should_throw_an_exception_when_user_is_not_logged_and_tries_to_see_the_trip_list() : void
     {
         // EXPECT
         $this->expectException(UserNotLoggedInException::class);
@@ -39,7 +39,7 @@ class TripServiceTest extends TestCase
 
 
     /** @test */
-    public function it_should_not_return_not_trips_when_is_not_a_friend()
+    public function it_should_not_return_not_trips_when_is_not_a_friend() : void
     {
         // GIVEN
         $tripToLondon = new Trip();
@@ -57,7 +57,7 @@ class TripServiceTest extends TestCase
 
 
     /** @test */
-    public function it_should_return_the_friend_trip_list_when_is_a_friend()
+    public function it_should_return_the_friend_trip_list_when_is_a_friend() : void
     {
         // GIVEN
         $tripToLondon = new Trip();

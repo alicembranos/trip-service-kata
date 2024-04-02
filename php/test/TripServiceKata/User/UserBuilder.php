@@ -20,30 +20,28 @@ class UserBuilder
         return new self();
     }
 
-
-    /** @param string $name */
-    public function withName($name)
+    public function withName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function withFriends(User ...$friends)
+    public function withFriends(User ...$friends): self
     {
         $this->friends = $friends;
 
         return $this;
     }
 
-    public function withTrips(Trip ...$trips)
+    public function withTrips(Trip ...$trips): self
     {
         $this->trips = $trips;
 
         return $this;
     }
 
-    public function build()
+    public function build(): User
     {
         $user = new User($this->name);
         $this->addFriendsTo($user);
@@ -51,16 +49,14 @@ class UserBuilder
         return $user;
     }
 
-    /** @return void */
-    private function addFriendsTo(User $user)
+    private function addFriendsTo(User $user): void
     {
         foreach ($this->friends as $friend) {
             $user->addFriend($friend);
         }
     }
 
-    /** @return void */
-    private function addTripsTo(User $user)
+    private function addTripsTo(User $user): void
     {
         foreach ($this->trips as $trip) {
             $user->addTrip($trip);
