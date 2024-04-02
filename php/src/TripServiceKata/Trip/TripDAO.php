@@ -11,4 +11,9 @@ class TripDAO
     {
         throw new DependentClassCalledDuringUnitTestException('TripDAO should not be invoked on an unit test.');
     }
+
+    public function getTripsBy(User $user)
+    {
+        return TripDAO::findTripsByUser($user);
+    }
 }

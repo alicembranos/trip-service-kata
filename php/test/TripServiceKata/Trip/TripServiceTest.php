@@ -5,21 +5,21 @@ namespace Test\TripServiceKata\Trip;
 use PHPUnit\Framework\TestCase;
 use Test\TripServiceKata\User\UserBuilder;
 use TripServiceKata\TripServiceKata\Exception\UserNotLoggedInException;
-use TripServiceKata\TripServiceKata\Trip\TestableTripService;
 use TripServiceKata\TripServiceKata\Trip\Trip;
+use TripServiceKata\TripServiceKata\Trip\TripService;
 use TripServiceKata\TripServiceKata\User\User;
 
 class TripServiceTest extends TestCase
 {
-    /** @var TestableTripService */
+    /** @var TripService */
     private $tripService;
     /** @var User */
     private $loggedInUser;
 
     protected function setUp()
     {
+        $this->tripService = $this->createMock(TripService::class);
         $this->loggedInUser = new User('John');
-        $this->tripService = new TestableTripService();
     }
 
     /** @test */
@@ -31,9 +31,11 @@ class TripServiceTest extends TestCase
         // GIVEN
         $guest = null;
         $unusedUser = new User("unusedUser");
+        $this->tripService->method('getFriendTrips')->willThrowException(new UserNotLoggedInException());
+
 
         // WHEN
-        $this->tripService->getTripsByUser($unusedUser, $guest);
+        $this->tripService->getFriendTrips($unusedUser, $guest);
     }
 
 
@@ -46,9 +48,10 @@ class TripServiceTest extends TestCase
             ->withName("Jane")
             ->withTrips($tripToLondon)
             ->build();
+        $this->tripService->method('getFriendTrips')->willReturn([]);
 
         // WHEN
-        $tripList = $this->tripService->getTripsByUser($friend, $this->loggedInUser);
+        $tripList = $this->tripService->getFriendTrips($friend, $this->loggedInUser);
 
         // THEN
         $this->assertCount(0, $tripList);
@@ -65,9 +68,10 @@ class TripServiceTest extends TestCase
             ->withFriends($this->loggedInUser)
             ->withTrips($tripToLondon)
             ->build();
+        $this->tripService->method('getFriendTrips')->willReturn($friend->getTrips());
 
         // WHEN
-        $tripList = $this->tripService->getTripsByUser($friend, $this->loggedInUser);
+        $tripList = $this->tripService->getFriendTrips($friend, $this->loggedInUser);
 
         // THEN
         $this->assertCount(1, $tripList);
