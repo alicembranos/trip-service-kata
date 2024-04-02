@@ -39,7 +39,7 @@ class TripServiceTest extends TestCase
 
 
     /** @test */
-    public function it_should_not_return_the_friends_trip_list_when_is_not_a_friend()
+    public function it_should_not_return_not_trips_when_is_not_a_friend()
     {
         // GIVEN
         $tripToLondon = new Trip();
